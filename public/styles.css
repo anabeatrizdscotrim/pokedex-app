@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('/img01.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: rgb(255, 255, 255);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 2.5em; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+ul {
+    list-style-type: none; 
+    padding: 0;
+    max-width: 600px; 
+    margin: 20px auto; 
+}
+
+li {
+    background-color: rgba(14, 50, 83, 0.8);
+    border: 1px solid rgba(14, 50, 83, 0.8); 
+    margin-bottom: 10px; 
+    padding: 15px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s; 
+}
+
+li:hover {
+    transform: scale(1.05);
+    color: #f07272;
+}
+
+a {
+    color: #7db6db;
+    text-decoration: none; 
+    font-weight: bold; 
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+a[href="/"] {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #3498db; 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+a[href="/"]:hover {
+    background-color: #2980b9; 
+}
+
+.pokemon-container {
+    max-width: 400px; 
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(14, 50, 83, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(14, 50, 83, 0.8);
+    text-align: center;
+}
+
+.pokemon-container h1 {
+    font-size: 2em; 
+    margin-bottom: 10px; 
+    color: #ffffff; 
+}
+
+.pokemon-container p {
+    font-size: 1.2em; 
+    margin: 10px 0;
+    color: #ffffff; 
+}
+
+.pokemon-container a {
+    display: inline-block;
+    margin-top: 20px; 
+    background-color: #db3434;
+    color: white; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.pokemon-container a:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+    color:  rgba(14, 50, 83, 0.8);
+}

@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title><%= pokemon.nome %></title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1><%= pokemon.nome %></h1>
-    <p>Tipo: <%= pokemon.tipo %></p>
-    <a href="/">Voltar à Pokédex</a>
+    <div class="pokemon-container">
+        <h1><%= pokemon.nome %></h1>
+        <p>Tipo: <%= pokemon.tipo %></p>
+        <a href="/">Voltar à Pokédex</a>
+    </div>
 </body>
 </html>
