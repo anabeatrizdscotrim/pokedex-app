@@ -1,16 +1,20 @@
-const trainers = [];
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/database'); 
+class Trainer extends Model {}
 
-const getTrainers = () => trainers;
+Trainer.init(
+    {
+        nome: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    },
+    {
+        sequelize,       
+        modelName: 'Trainer',
+        tableName: 'trainers', 
+        timestamps: true 
+    }
+);
 
-const createTrainer = (nome, pokemonIds) => {
-    const newTrainer = {
-        id: trainers.length + 1,
-        nome,
-        pokemons: pokemonIds.map(id => parseInt(id)) // Converte os IDs para inteiros
-    };
-    trainers.push(newTrainer);
-};
-
-const getTrainerById = (id) => trainers.find(t => t.id === parseInt(id));
-
-module.exports = { getTrainers, createTrainer, getTrainerById };
+module.exports = Trainer;

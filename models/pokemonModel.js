@@ -1,11 +1,36 @@
-const pokemons = [
-    { id: 1, nome: 'Bulbassauro', tipo: 'Vegetal/Veneno'},
-    { id: 2, nome: 'Squirtle', tipo: 'Água'},
-    { id: 3, nome: 'Charmander', tipo: 'Fogo'},
-];
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/database');
+const Trainer = require('./trainerModel');
 
-const getPokemons = () => pokemons;
-const getPokemonById = (id) => pokemons.find(p => p.id === parseInt(id));
-const createPokemon = (nome, tipo) => pokemons.push({ id: pokemons.length + 1, nome, tipo });
+class Pokemon extends Model {}
 
-module.exports = { getPokemons, getPokemonById, createPokemon };
+Pokemon.init(
+    {
+        nome: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        tipo: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        trainerId: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: Trainer,
+                key: 'id'
+            }
+        }
+    },
+    {
+        sequelize,
+        modelName: 'Pokemon',
+        tableName: 'pokemons',
+        timestamps: false
+    }
+);
+
+Trainer.hasMany(Pokemon, { foreignKey: 'trainerId' });
+Pokemon.belongsTo(Trainer, { foreignKey: 'trainerId' });
+
+module.exports = Pokemon;
